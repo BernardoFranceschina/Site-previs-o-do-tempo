@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Previsão foda</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="css/iziToast.min.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<div class="nav-wrapper  grey darken-4">
+					<a href="#" class="brand-logo">Previsão do tempo</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+			        	<li><a href="#" data-activates="slide-out" id="atDisc" class="butu"><i class="material-icons">menu</i></a></li>
+     				</ul>
+     				<ul class="side-nav" id="slide-out">
+				    	<li>
+				    		<ul class="collapsible" data-collapsible="accordion">
+
+								<li>
+									<div class="collapsible-header black z-depth-1 active"><i class="material-icons">history</i>Atualização de feed automatica</div>
+									<div class="collapsible-body black-text darken-3 center-align z-depth-2 white">
+										<br>
+										<div class="input-field ">
+											<input type="text" id="atInput">
+											<label>Digite aqui a cada quantos minutos a atualização deve ser feita</label>
+										</div>
+										<a class="waves-effect waves-light btn black atbtn">Atualizar</a>
+
+										<div class="divider"></div>
+										<p>Ativar atualizações automaticas</p>
+										<div class="switch">
+										    <label>
+										      Off
+										      <input type="checkbox" class="atSwitch">
+										      <span class="lever"></span>
+										      On
+										    </label>
+										  </div>
+									</div>
+								</li>
+							</ul>
+				    	</li>
+			      	</ul>
+
+			      	<div class="progress black">
+      					<div class="determinate red" style="width: 0%"></div>
+  					</div>
+  					
+				</div>
+
+			</nav>
+		</header>
+
+
+	<main>
+
+
+		<div class="section white">
+			<div class="container">
+	    		<div class="row">
+	    			<form class="col s12">
+	    				<div class="row">
+	    					<div class="input-field col s2">
+	    						<select id="sistema">
+	    							<option value="metric">Metrico</option>
+	    							<option value="imperial">Imperial</option>
+	    							<option value=" ">Kelvin</option>
+	    						</select>
+	    						<label>Sistema</label>
+	    					</div>
+	    					<div class="input-field col s1">
+	    						<select id="lang">
+	    							<optgroup label="Main">
+		    							<option value="pt">PT</option>
+		    							<option value="en">EN</option>
+		    							<option value="es">ES</option>
+		    						</optgroup>
+		    						<optgroup label="Other">
+		    							<option value="ar">AR</option>
+		    							<option value="bg">BG</option>
+		    							<option value="ca">CA</option>
+		    							<option value="cz">CZ</option>
+		    							<option value="de">DE</option>
+		    							<option value="el">EL</option>
+		    							<option value="fi">FI</option>
+		    							<option value="fr">FR</option>
+		    							<option value="gl">GL</option>
+		    							<option value="hr">HR</option>
+		    							<option value="hu">HU</option>
+		    							<option value="it">IT</option>
+		    							<option value="ja">JA</option>
+		    							<option value="kr">KR</option>
+		    							<option value="la">LA</option>
+		    							<option value="lt">LT</option>
+		    							<option value="mk">MK</option>
+		    							<option value="nl">NL</option>
+		    							<option value="pl">PL</option>
+		    							<option value="ro">RO</option>
+		    							<option value="ru">RU</option>
+		    							<option value="se">SE</option>
+		    							<option value="sk">SK</option>
+		    							<option value="sl">SL</option>
+		    							<option value="tr">TR</option>
+		    							<option value="ua">UA</option>
+		    							<option value="vi">VI</option>
+		    							<option value="zh_cn">ZH_CN</option>
+		    							<option value="zh_tw">ZH_TW</option>
+		    						</optgroup>
+	    						</select>
+	    						<label>Language</label>
+	    					</div>
+
+	    					<div class="input-field col s5">
+	    						<i class="material-icons prefix tiny">navigation</i>
+	    						<input type="text" id="cidade">
+	    						<label for="cidade">Digite a Cidade Aqui</label>
+	    					</div>
+
+	    					<div class="switch col s1">
+	    						<label>
+	    							Digit
+	    							<input type="checkbox" class="switchFoda">
+	    							<span class="lever"></span>
+	    							Selec
+	    						</label>
+	    					</div>
+	    					<!-- PROD AREA -->
+	    					<div class="input-field col s2" id="regInput">
+	    						<i class="tiny material-icons prefix">business</i>
+	    						<input value="br" type="text" id="regiao" data-length="2">
+	    						<label for="regiao">Região</label>
+	    					</div>
+
+	    					<div class="input-field col s2" id="regInput2" style="display: none;">
+	    						<i class="tiny material-icons prefix">business</i>
+	    						<select id="regiao2">
+	    							<option value='AF'>Afghanistan \ AF</option>
+									<option value='AL'>Albania \ AL</option>
+									<option value='DZ'>Algeria \ DZ</option>
+									<option value='AS'>American Samoa \ AS</option>
+									<option value='AD'>Andorra \ AD</option>
+									<option value='AO'>Angola \ AO</option>
+									<option value='AI'>Anguilla \ AI</option>
+									<option value='AQ'>Antarctica \ AQ</option>
+									<option value='AG'>Antigua and Barbuda \ AG</option>
+									<option value='AR'>Argentina \ AR</option>
+									<option value='AM'>Armenia \ AM</option>
+									<option value='AW'>Aruba \ AW</option>
+									<option value='AU'>Australia \ AU</option>
+									<option value='AT'>Austria \ AT</option>
+									<option value='AZ'>Azerbaijan \ AZ</option>
+									<option value='BS'>Bahamas \ BS</option>
+									<option value='BH'>Bahrain \ BH</option>
+									<option value='BD'>Bangladesh \ BD</option>
+									<option value='BB'>Barbados \ BB</option>
+									<option value='BY'>Belarus \ BY</option>
+									<option value='BE'>Belgium \ BE</option>
+									<option value='BZ'>Belize \ BZ</option>
+									<option value='BJ'>Benin \ BJ</option>
+									<option value='BM'>Bermuda \ BM</option>
+									<option value='BT'>Bhutan \ BT</option>
+									<option value='BO'>Bolivia \ BO</option>
+									<option value='BA'>Bosnia and Herzegovina \ BA</option>
+									<option value='BW'>Botswana \ BW</option>
+									<option value='BR'>Brazil \ BR</option>
+									<option value='IO'>British Indian Ocean Territory \ IO</option>
+									<option value='VG'>British Virgin Islands \ VG</option>
+									<option value='BN'>Brunei \ BN</option>
+									<option value='BG'>Bulgaria \ BG</option>
+									<option value='BF'>Burkina Faso \ BF</option>
+									<option value='BI'>Burundi \ BI</option>
+									<option value='KH'>Cambodia \ KH</option>
+									<option value='CM'>Cameroon \ CM</option>
+									<option value='CA'>Canada \ CA</option>
+									<option value='CV'>Cape Verde \ CV</option>
+									<option value='KY'>Cayman Islands \ KY</option>
+									<option value='CF'>Central African Republic \ CF</option>
+									<option value='TD'>Chad \ TD</option>
+									<option value='CL'>Chile \ CL</option>
+									<option value='CN'>China \ CN</option>
+									<option value='CX'>Christmas Island \ CX</option>
+									<option value='CC'>Cocos Islands \ CC</option>
+									<option value='CO'>Colombia \ CO</option>
+									<option value='KM'>Comoros \ KM</option>
+									<option value='CK'>Cook Islands \ CK</option>
+									<option value='CR'>Costa Rica \ CR</option>
+									<option value='HR'>Croatia \ HR</option>
+									<option value='CU'>Cuba \ CU</option>
+									<option value='CW'>Curacao \ CW</option>
+									<option value='CY'>Cyprus \ CY</option>
+									<option value='CZ'>Czech Republic \ CZ</option>
+									<option value='CD'>Democratic Republic of the Congo \ CD</option>
+									<option value='DK'>Denmark \ DK</option>
+									<option value='DJ'>Djibouti \ DJ</option>
+									<option value='DM'>Dominica \ DM</option>
+									<option value='DO'>Dominican Republic \ DO</option>
+									<option value='TL'>East Timor \ TL</option>
+									<option value='EC'>Ecuador \ EC</option>
+									<option value='EG'>Egypt \ EG</option>
+									<option value='SV'>El Salvador \ SV</option>
+									<option value='GQ'>Equatorial Guinea \ GQ</option>
+									<option value='ER'>Eritrea \ ER</option>
+									<option value='EE'>Estonia \ EE</option>
+									<option value='ET'>Ethiopia \ ET</option>
+									<option value='FK'>Falkland Islands \ FK</option>
+									<option value='FO'>Faroe Islands \ FO</option>
+									<option value='FJ'>Fiji \ FJ</option>
+									<option value='FI'>Finland \ FI</option>
+									<option value='FR'>France \ FR</option>
+									<option value='PF'>French Polynesia \ PF</option>
+									<option value='GA'>Gabon \ GA</option>
+									<option value='GM'>Gambia \ GM</option>
+									<option value='GE'>Georgia \ GE</option>
+									<option value='DE'>Germany \ DE</option>
+									<option value='GH'>Ghana \ GH</option>
+									<option value='GI'>Gibraltar \ GI</option>
+									<option value='GR'>Greece \ GR</option>
+									<option value='GL'>Greenland \ GL</option>
+									<option value='GD'>Grenada \ GD</option>
+									<option value='GU'>Guam \ GU</option>
+									<option value='GT'>Guatemala \ GT</option>
+									<option value='GG'>Guernsey \ GG</option>
+									<option value='GN'>Guinea \ GN</option>
+									<option value='GW'>Guinea-Bissau \ GW</option>
+									<option value='GY'>Guyana \ GY</option>
+									<option value='HT'>Haiti \ HT</option>
+									<option value='HN'>Honduras \ HN</option>
+									<option value='HK'>Hong Kong \ HK</option>
+									<option value='HU'>Hungary \ HU</option>
+									<option value='IS'>Iceland \ IS</option>
+									<option value='IN'>India \ IN</option>
+									<option value='ID'>Indonesia \ ID</option>
+									<option value='IR'>Iran \ IR</option>
+									<option value='IQ'>Iraq \ IQ</option>
+									<option value='IE'>Ireland \ IE</option>
+									<option value='IM'>Isle of Man \ IM</option>
+									<option value='IL'>Israel \ IL</option>
+									<option value='IT'>Italy \ IT</option>
+									<option value='CI'>Ivory Coast \ CI</option>
+									<option value='JM'>Jamaica \ JM</option>
+									<option value='JP'>Japan \ JP</option>
+									<option value='JE'>Jersey \ JE</option>
+									<option value='JO'>Jordan \ JO</option>
+									<option value='KZ'>Kazakhstan \ KZ</option>
+									<option value='KE'>Kenya \ KE</option>
+									<option value='KI'>Kiribati \ KI</option>
+									<option value='XK'>Kosovo \ XK</option>
+									<option value='KW'>Kuwait \ KW</option>
+									<option value='KG'>Kyrgyzstan \ KG</option>
+									<option value='LA'>Laos \ LA</option>
+									<option value='LV'>Latvia \ LV</option>
+									<option value='LB'>Lebanon \ LB</option>
+									<option value='LS'>Lesotho \ LS</option>
+									<option value='LR'>Liberia \ LR</option>
+									<option value='LY'>Libya \ LY</option>
+									<option value='LI'>Liechtenstein \ LI</option>
+									<option value='LT'>Lithuania \ LT</option>
+									<option value='LU'>Luxembourg \ LU</option>
+									<option value='MO'>Macau \ MO</option>
+									<option value='MK'>Macedonia \ MK</option>
+									<option value='MG'>Madagascar \ MG</option>
+									<option value='MW'>Malawi \ MW</option>
+									<option value='MY'>Malaysia \ MY</option>
+									<option value='MV'>Maldives \ MV</option>
+									<option value='ML'>Mali \ ML</option>
+									<option value='MT'>Malta \ MT</option>
+									<option value='MH'>Marshall Islands \ MH</option>
+									<option value='MR'>Mauritania \ MR</option>
+									<option value='MU'>Mauritius \ MU</option>
+									<option value='YT'>Mayotte \ YT</option>
+									<option value='MX'>Mexico \ MX</option>
+									<option value='FM'>Micronesia \ FM</option>
+									<option value='MD'>Moldova \ MD</option>
+									<option value='MC'>Monaco \ MC</option>
+									<option value='MN'>Mongolia \ MN</option>
+									<option value='ME'>Montenegro \ ME</option>
+									<option value='MS'>Montserrat \ MS</option>
+									<option value='MA'>Morocco \ MA</option>
+									<option value='MZ'>Mozambique \ MZ</option>
+									<option value='MM'>Myanmar \ MM</option>
+									<option value='NA'>Namibia \ NA</option>
+									<option value='NR'>Nauru \ NR</option>
+									<option value='NP'>Nepal \ NP</option>
+									<option value='NL'>Netherlands \ NL</option>
+									<option value='AN'>Netherlands Antilles \ AN</option>
+									<option value='NC'>New Caledonia \ NC</option>
+									<option value='NZ'>New Zealand \ NZ</option>
+									<option value='NI'>Nicaragua \ NI</option>
+									<option value='NE'>Niger \ NE</option>
+									<option value='NG'>Nigeria \ NG</option>
+									<option value='NU'>Niue \ NU</option>
+									<option value='KP'>North Korea \ KP</option>
+									<option value='MP'>Northern Mariana Islands \ MP</option>
+									<option value='NO'>Norway \ NO</option>
+									<option value='OM'>Oman \ OM</option>
+									<option value='PK'>Pakistan \ PK</option>
+									<option value='PW'>Palau \ PW</option>
+									<option value='PS'>Palestine \ PS</option>
+									<option value='PA'>Panama \ PA</option>
+									<option value='PG'>Papua New Guinea \ PG</option>
+									<option value='PY'>Paraguay \ PY</option>
+									<option value='PE'>Peru \ PE</option>
+									<option value='PH'>Philippines \ PH</option>
+									<option value='PN'>Pitcairn \ PN</option>
+									<option value='PL'>Poland \ PL</option>
+									<option value='PT'>Portugal \ PT</option>
+									<option value='PR'>Puerto Rico \ PR</option>
+									<option value='QA'>Qatar \ QA</option>
+									<option value='CG'>Republic of the Congo \ CG</option>
+									<option value='RE'>Reunion \ RE</option>
+									<option value='RO'>Romania \ RO</option>
+									<option value='RU'>Russia \ RU</option>
+									<option value='RW'>Rwanda \ RW</option>
+									<option value='BL'>Saint Barthelemy \ BL</option>
+									<option value='SH'>Saint Helena \ SH</option>
+									<option value='KN'>Saint Kitts and Nevis \ KN</option>
+									<option value='LC'>Saint Lucia \ LC</option>
+									<option value='MF'>Saint Martin \ MF</option>
+									<option value='PM'>Saint Pierre and Miquelon \ PM</option>
+									<option value='VC'>Saint Vincent and the Grenadines \ VC</option>
+									<option value='WS'>Samoa \ WS</option>
+									<option value='SM'>San Marino \ SM</option>
+									<option value='ST'>Sao Tome and Principe \ ST</option>
+									<option value='SA'>Saudi Arabia \ SA</option>
+									<option value='SN'>Senegal \ SN</option>
+									<option value='RS'>Serbia \ RS</option>
+									<option value='SC'>Seychelles \ SC</option>
+									<option value='SL'>Sierra Leone \ SL</option>
+									<option value='SG'>Singapore \ SG</option>
+									<option value='SX'>Sint Maarten \ SX</option>
+									<option value='SK'>Slovakia \ SK</option>
+									<option value='SI'>Slovenia \ SI</option>
+									<option value='SB'>Solomon Islands \ SB</option>
+									<option value='SO'>Somalia \ SO</option>
+									<option value='ZA'>South Africa \ ZA</option>
+									<option value='KR'>South Korea \ KR</option>
+									<option value='SS'>South Sudan \ SS</option>
+									<option value='ES'>Spain \ ES</option>
+									<option value='LK'>Sri Lanka \ LK</option>
+									<option value='SD'>Sudan \ SD</option>
+									<option value='SR'>Suriname \ SR</option>
+									<option value='SJ'>Svalbard and Jan Mayen \ SJ</option>
+									<option value='SZ'>Swaziland \ SZ</option>
+									<option value='SE'>Sweden \ SE</option>
+									<option value='CH'>Switzerland \ CH</option>
+									<option value='SY'>Syria \ SY</option>
+									<option value='TW'>Taiwan \ TW</option>
+									<option value='TJ'>Tajikistan \ TJ</option>
+									<option value='TZ'>Tanzania \ TZ</option>
+									<option value='TH'>Thailand \ TH</option>
+									<option value='TG'>Togo \ TG</option>
+									<option value='TK'>Tokelau \ TK</option>
+									<option value='TO'>Tonga \ TO</option>
+									<option value='TT'>Trinidad and Tobago \ TT</option>
+									<option value='TN'>Tunisia \ TN</option>
+									<option value='TR'>Turkey \ TR</option>
+									<option value='TM'>Turkmenistan \ TM</option>
+									<option value='TC'>Turks and Caicos Islands \ TC</option>
+									<option value='TV'>Tuvalu \ TV</option>
+									<option value='VI'>U.S. Virgin Islands \ VI</option>
+									<option value='UG'>Uganda \ UG</option>
+									<option value='UA'>Ukraine \ UA</option>
+									<option value='AE'>United Arab Emirates \ AE</option>
+									<option value='GB'>United Kingdom \ GB</option>
+									<option value='US'>United States \ US</option>
+									<option value='UY'>Uruguay \ UY</option>
+									<option value='UZ'>Uzbekistan \ UZ</option>
+									<option value='VU'>Vanuatu \ VU</option>
+									<option value='VA'>Vatican \ VA</option>
+									<option value='VE'>Venezuela \ VE</option>
+									<option value='VN'>Vietnam \ VN</option>
+									<option value='WF'>Wallis and Futuna \ WF</option>
+									<option value='EH'>Western Sahara \ EH</option>
+									<option value='YE'>Yemen \ YE</option>
+									<option value='ZM'>Zambia \ ZM</option>
+									<option value='ZW'>Zimbabwe \ ZW</option>
+	    						</select>
+	    						<label>Região</label>
+	    					</div>
+	    					<!-- END -->
+	    					<div class="center-align">
+	    						<a class="btn-floating btn-large waves-effect waves-light botaoFoda grey darken-4" id="botaoFodaMenu" oncontextmenu="return false;"><i class="material-icons">add</i></a>
+	    					</div>
+
+	    				</div>
+	    			</form>
+	    		</div>
+	    	</div>
+
+	    	<!-- Dia de hoje -->
+	    	<div id="princDiv">
+		    	<div class="slider">
+		    		<ul class="slides white diaPrincipal"></ul>
+		    	</div>
+
+		    	<ul class="cards">
+		    		
+		    	</ul>
+
+		    	<div class="drops">
+		    		
+		    	</div>
+		    </div>
+		    <!--  -->
+
+		    <div class="tap-target white" id="target1" data-activates="botaoFodaMenu">
+			    <div class="tap-target-content">
+			      <h5>Limpar Cidades</h5>
+			      <p>Aperte aqui com o botão direito do mouse para limpar a sua tela de tempo</p>
+			    </div>
+			</div>
+
+			<div class="tap-target white" id="target2" data-activates="atDisc">
+			    <div class="tap-target-content">
+			      <h5>Atualizações automaticas</h5>
+			      <p>Não se esqueça de acessar esse menu para poder ativar as atualizações automaticas do seu feed de tempo. Aqui você tambem poderá personalizar o tempo em que cada atualização vai ocorrer (o padrão é 10 minutos)</p>
+			    </div>
+			</div>
+
+
+
+
+    	</div>
+		<div class="parallax-container">
+      		<div class="parallax"><img src="http://hddesktopwallpapers.in/wp-content/uploads/2015/09/clouds-wallpaper-sunrise.jpg"></div>
+    	</div>
+
+
+
+
+
+	</main>
+
+	<footer>
+		<footer class="page-footer grey darken-4">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">95% RESONSIVO(ATÉ AGORA)</h5>
+						<p>Funciona com 0 erros(as vezes com 1(2 se pá))</p>
+						<img src="img/Pogpowered.gif">
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2018 Bernado & Erik
+				</div>
+			</div>
+		</footer>
+	</footer>
+
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+
+	<!-- Inicializador de Jquery -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+      		$('.parallax').parallax();
+      		$('select').material_select();
+      		$('.slider').slider();
+      		$(".butu").sideNav();
+      	 	$('.collapsible').collapsible();
+      	 	$('.butu').sideNav({
+      	 		menuWidth: 500
+      	 	});
+
+
+      	 	$( "#sortable" ).sortable();
+			$( "#sortable" ).disableSelection();
+
+    	});
+	</script>
+
+	<!-- Scripts JS -->
+
+	<script src="js/numeral.min.js"></script>
+	<script src="js/iziToast.min.js" type="text/javascript"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="js/theme/sand-signika.js"></script>
+	<script type="text/javascript" src="js/cidadesestados.js"></script>
+	<script type="text/javascript" src="js/autocomplete.js"></script>
+	<script type="text/javascript" src="js/codR.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<!-- Css -->
+	<style type="text/css">
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		main {
+			flex: 1 0 auto;
+		}
+	</style>
+	<style>
+		#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+		#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+		#sortable li span { position: absolute; margin-left: -1.3em; }
+	</style>
+
+	</body>
+</html>
+
+
+
